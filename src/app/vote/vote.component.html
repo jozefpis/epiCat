@@ -1,10 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12" id="vote-container">
+<div id="slide-group">
+  <div id="slide-vote">
+    <div class="container">
       <div class="row">
-        <div class="col-md-6 photo">foto 1</div>
-        <div class="col-md-6 photo">foto 2</div>
+        <div class="col-md-12" id="vote-container">
+          <div class="row title">
+            <h3 [hidden]="imageLoader">Which one is cuter?</h3>
+          </div>
+          <div class="row" *ngIf="cat_photos" [@photosAnimation]="cat_photos.length">
+            <div class="col-md-6 col-6" *ngFor="let cat of cat_photos">
+              <a href="javascript:void(0)" (click)="imageLoader || vote(cat)" class="photo_overlay">
+                <div id="like_overlay" [hidden]="imageLoader">
+                  <div><fa name="far fa-thumbs-up"></fa></div>
+                </div>
+                <img [hidden]="!imageLoader" src="./assets/images/loader.gif" class="photo_loader">
+                <img [hidden]="imageLoader" src="{{cat.url}}" (load)="load()" class="cat" [ngClass]="cat.width > cat.height ? 'full_w' : 'full_h'" alt="">
+                <!-- <div class="photo" [ngStyle]="{backgroundImage: 'url(' + cat.url + ')'}"></div> -->
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div id="slide-stats">
+    <app-stats></app-stats>
   </div>
 </div>

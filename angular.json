@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "epicat": {
+    "abcatting": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/epicat",
+            "outputPath": "dist/abcatting",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "epicat:build"
+            "browserTarget": "abcatting:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "epicat:build:production"
+              "browserTarget": "abcatting:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "epicat:build"
+            "browserTarget": "abcatting:build"
           }
         },
         "test": {
@@ -106,7 +107,7 @@
         }
       }
     },
-    "epicat-e2e": {
+    "abcatting-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "epicat:serve"
+            "devServerTarget": "abcatting:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "epicat:serve:production"
+              "devServerTarget": "abcatting:serve:production"
             }
           }
         },
@@ -135,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "epicat"
+  "defaultProject": "abcatting"
 }

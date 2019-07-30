@@ -1,0 +1,23 @@
+<div id="stats">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 id="count">For <span>{{countPairs}}</span> pairs was voted</h2>
+        <div *ngFor="let pair of stats">
+          <div class="row stats">
+            <div class="col-md-6 pair" *ngFor="let cat of pair.cats">
+              <img src="{{cat.url}}">
+            </div>
+            <div class="col-md-12">
+              <ul class="list-group">
+                <li *ngFor="let vote of pair.votes" class="list-group-item">
+                  <img src="{{vote.cat_url}}"> User <strong>{{vote.sub_id}}</strong> voted
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
